@@ -1,0 +1,27 @@
+---
+sidebar_position: 1
+---
+
+# Capabilities
+
+Explore the different capabilities of TT-ModO
+
+## What is TT-ModO?
+TT-ModO is a FastAPI that orchestrates ML model predictions to recommendations throughout TurboTax use cases
+
+The capabilities include:
+- Serves real-time product recommendations and next actions via ML models (THOR, RNS, PINT, etc) through FastAPI orchestration layer
+- Integrates with IXP for feature flags/experiment assignments
+- Caches ML predictions via MXS score cache
+- Enables unbiased training data via randomization/recipes configured in THOR
+- Shared model serving for THOR, RNS, PINT, PYRO, etc, through one egress at ~2,100 TPS
+- Data composition (what powers the decisions): fetches features from DSL, OLAP, Commerce/Entitlements, and UCP/Identity, using parallel/sequential fetch and deep-merge before calling models
+- Resiliency : uses a shared aiohttp client with retries.timeouts and is adopting cg-ai-resiliency plus externalized config via CaaS to tune per-downstream behavior safely
+- UI integration : TT-ModO returns decisions that UXO/PMEC render as embedded or full-page upsells; does not render UI
+
+**Notes:**
+- **IXP** : Intuit eXperimentation Platform - central platform for feature flags and A/B experiments
+- **MXS** : Intuit's model serving platform (Model Execution Service) - hosts and executes ML models
+- **~2,100 TPS** = about 2,100 requests per second handled by TT-ModO in production (throughput)
+- **UXO** (UX Orchestration) : TurboTax's in-product rules engine, it evaluates rules per screen/topic and calls downstreams to inject upsells/widgets into the UI
+- **PMEC** : web plugin/content layer that renders monetization experiences using attributes passed from UXO and fetches content via Campaign Manager -> renders the actual upsell UI the user sees

@@ -1,0 +1,25 @@
+---
+sidebar_position: 5
+---
+
+# Data Sources
+
+The Data Sources TT-ModO Uses
+
+| Source | What it Provides |
+| ------ | ---------------- |
+MXS | ML model predictions (inference) and access to the MXS score cache
+Commerce | Product pricing, offer details, and customer segments
+Entitlements | What's in the user's cart
+UCP/C360 | Customer profile, SKU history, and subscription status via Identity GraphQL
+DSL | Feature APIs for TaxML and pre-aggregated clickstream features
+IXP | Experiement/feature-flag assignments (recipe, treatment payloads)
+TFPS | Tax filing/process state data as needed for features
+FMP | Financial Management Platform - storage layer used by MXS score cache for cached predictions
+TRM | Tax Return Management - Tax return/transactional data access path
+
+
+Notes:
+- **SKU**: The specific TurboTax product/package identifier used for pricing, entitlement, and offer logic
+- **MXSScoreCache**: TT-ModO itegration to MXS's model prediction cache, used to fetch and/or refresh previously 
+                scored model outputs by entity key instead of rescoring every request

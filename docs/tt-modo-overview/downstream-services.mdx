@@ -1,0 +1,21 @@
+---
+sidebar_position: 6
+---
+
+# Downstream Services
+
+TT-MoDo's Downstream Services
+
+| Service | Purpose |
+| ------- | ------- |
+MXS | Sends customer features, receives ranked product recommendations (predictions); supports cache prime/fetch
+Commerce + Entitlements | Pricing, offers, user entitlements via Consumer Commerce APIs
+DSL + OLAP | Feature pipelines (GraphQL features; real-time clickstream SQL)
+UCP/Identity GraphQL | Credit Karma Unified Consumer Profile signals
+IXP | Fetches experiment/recipe assignment for each user
+Docs | Sequential/parallel document fetch (IDs -> details)
+
+Notes:
+- **DSL** : Data Service Layer - A GraphQL service TT-ModO queries to retrieve model features
+- **OLAP** : Analytical SQL over clickstream - TT-ModO runs raw SQL against an OLAP store to compute real-time interaction features
+- **GraphQL** : A query API style where the client asks for exactly the fields it needs

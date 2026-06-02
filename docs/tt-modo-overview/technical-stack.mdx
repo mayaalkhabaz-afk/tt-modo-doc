@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+
+# Technical Stack
+
+## The different layers of TT-ModO's technical stack
+
+**1. Language/Framework**
+    - Python async, FastAPI
+
+**2. Config & Runtime**
+    -  HTTP client: aiohttp with retries/timeouts; moving to cg-ai-resiliency
+    -  Config: Spring Cloud Config via CaaS using cg-ai-config-client
+
+**3. Data & Experiment Integrations** 
+    - Data access: DSL (GraphQL features), OLAP (clickstream SQL), Commerce/Entitlements (pricing + user rights), UCP/Identity (Credit Karma profile signals)
+    - Experiments/flags: IXP (flags/assingments)
+
+**4. Model Serving & Caching**
+    - MXS (inference) + MXS Score Cache (lookup, prime/fetch)
+
+**5. Observability**
+    - Wavefront dashboards, Splunk logging, moving to OpenTelemetry when applicable
+
+**6. Performance Testing**
+    - Gatling Cloud (Scala, in perf-tests/)
+
+Notes:
+- **CaaS** : Configuration as a Service - Intuit's managed Spring Cloud Config platform used to host and serve runtime config to services
+- **OpenTelemtry** (OTel) : Open standard + SDK's for collecting traces, etrics, and logs from apps/services and exporting them to backends 

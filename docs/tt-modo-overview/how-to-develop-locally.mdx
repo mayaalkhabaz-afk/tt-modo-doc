@@ -1,0 +1,36 @@
+---
+sidebar_position: 3
+---
+
+# How to Develop Locally
+
+Here are the steps to get TT-ModO local
+1. Clone github repository
+2. Install python3 (v3.13)
+3. Download Poetry: 
+    ```
+        curl -sSL https://install.python-poetry.org | python3 - --version 1.8.4
+    ```
+4. Configure Intuit Artifactuary as a PyPI source: 
+    ```
+        poetry source add --priority=supplemental intuit \
+        https://artifact.intuit.com/artifactory/api/pypi/pypi-intuit/simple/
+    ```
+5. Install dependencies:
+    ```
+        poetry lock --no-update
+        poetry install
+    ```
+
+Now it should be ready to test!
+
+Run this once:
+    ```
+        chmod +x ./scripts/run_local.sh
+    ```
+and then run,
+    ```
+        ./scripts/run_local.sh
+    ```
+
+Finally, check https://localhost:8443/health/full to verify healthy status
