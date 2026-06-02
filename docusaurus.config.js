@@ -94,7 +94,7 @@ const config = {
           {
             title: 'Design Specs',
             items: [
-              { label: 'All Specs', to: '/docs/design-specs' },
+              { label: 'All Specs', to: '/docs/category/design-specs' },
             ],
           },
           {
